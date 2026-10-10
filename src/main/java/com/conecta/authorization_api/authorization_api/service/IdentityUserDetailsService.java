@@ -1,7 +1,7 @@
-package com.chemxr.authorization_api.authorization_api.service;
+package com.conecta.authorization_api.authorization_api.service;
 
-import com.chemxr.authorization_api.authorization_api.domain.Identity;
-import com.chemxr.authorization_api.authorization_api.repository.IdentityRepository;
+import com.conecta.authorization_api.authorization_api.domain.Identity;
+import com.conecta.authorization_api.authorization_api.repository.IdentityRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

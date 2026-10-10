@@ -1,4 +1,4 @@
-package com.chemxr.authorization_api.authorization_api.domain;
+package com.conecta.authorization_api.authorization_api.domain;
 
 import jakarta.persistence.Table;
 import lombok.Data;

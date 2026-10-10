@@ -14,7 +14,7 @@ curl http://localhost:8080/oauth2/jwks | jq
 Client credentials
 ```bash
 curl -v -X POST http://localhost:8080/oauth2/token \
-  -u chemxr-client:bonjour \
+  -u example-client:bonjour \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "grant_type=client_credentials&scope=api.read"
 ```
@@ -22,7 +22,7 @@ curl -v -X POST http://localhost:8080/oauth2/token \
 Authorization endpoint
 ```bash
 curl -v -X POST http://localhost:8080/oauth2/token \
-  -u chemxr-client:bonjour \
+  -u example-client:bonjour \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "grant_type=password" \
   -d "username=admin" \

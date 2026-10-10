@@ -1,6 +1,6 @@
-package com.chemxr.authorization_api.authorization_api.repository;
+package com.conecta.authorization_api.authorization_api.repository;
 
-import com.chemxr.authorization_api.authorization_api.domain.Identity;
+import com.conecta.authorization_api.authorization_api.domain.Identity;
 import org.jspecify.annotations.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

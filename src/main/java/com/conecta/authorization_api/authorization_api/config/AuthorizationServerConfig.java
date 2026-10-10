@@ -1,4 +1,4 @@
-package com.chemxr.authorization_api.authorization_api.config;
+package com.conecta.authorization_api.authorization_api.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

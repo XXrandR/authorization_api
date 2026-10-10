@@ -1,4 +1,4 @@
-package com.chemxr.authorization_api.authorization_api.config;
+package com.conecta.authorization_api.authorization_api.config;
 
 import org.jspecify.annotations.NonNull;
 import org.springframework.security.authentication.AuthenticationProvider;
