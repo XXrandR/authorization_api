@@ -1,7 +1,7 @@
 package com.conecta.authorization_api.authorization_api.domain;
 
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.Getter;
 
 import java.time.OffsetDateTime;
 import java.util.Set;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import jakarta.persistence.*;
 
-@Data
+@Getter
 @Entity
 @Table(name = "identity", schema = "auth")
 public class Identity {

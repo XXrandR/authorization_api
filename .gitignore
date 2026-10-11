@@ -34,3 +34,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Local authorization-server configuration and private signing material
+src/main/resources/application-local.properties
+*.p12
+*.pfx
+*.jks
+*.swp

@@ -1,0 +1,11 @@
+# Copy to application-local.properties (ignored by Git) for local development.
+spring.datasource.url=jdbc:postgresql://localhost:5435/test1
+spring.datasource.username=maximus
+spring.datasource.password=MaximusTheGreat50
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# A file URL makes the key available to the JVM but keeps it outside Git.
+app.authorization.key-store.location=file:${user.home}/.conecta/authorization-server.p12
+app.authorization.key-store.password=replace-me
+app.authorization.key-store.alias=authorization-server
+app.authorization.key-store.key-password=replace-me
