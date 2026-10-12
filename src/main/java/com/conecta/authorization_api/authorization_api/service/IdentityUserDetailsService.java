@@ -30,6 +30,7 @@ public class IdentityUserDetailsService
 
         Identity identity =
                 repository.findByUsername(username)
+                        .or(() -> repository.findByEmailIgnoreCase(username))
                         .orElseThrow(() ->
                                 new UsernameNotFoundException(
                                         "User not found"

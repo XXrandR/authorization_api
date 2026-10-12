@@ -18,4 +18,19 @@ public class Role {
 
     @Column(nullable = false, unique = true, length = 50)
     private String name;
+
+    @Column(name = "is_system", nullable = false)
+    private boolean system;
+
+    public static Role custom(String name) {
+        Role role = new Role();
+        role.id = UUID.randomUUID();
+        role.name = name;
+        return role;
+    }
+
+    public void rename(String name) {
+        if (system) throw new IllegalStateException("System roles cannot be renamed");
+        this.name = name;
+    }
 }

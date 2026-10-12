@@ -14,6 +14,59 @@ import jakarta.persistence.*;
 @Table(name = "identity", schema = "auth")
 public class Identity {
 
+    public Identity() {
+    }
+
+    public static Identity pendingRegistration(
+            String username,
+            String email,
+            String passwordHash,
+            Set<Role> roles) {
+        Identity identity = new Identity();
+        identity.id = UUID.randomUUID();
+        identity.username = username;
+        identity.email = email;
+        identity.passwordHash = passwordHash;
+        identity.personId = UUID.randomUUID();
+        identity.active = false;
+        identity.roles = roles;
+        return identity;
+    }
+
+    public void activate() {
+        emailVerified = true;
+        active = true;
+    }
+
+    public void changePassword(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public void replaceRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public void block() {
+        blocked = true;
+    }
+
+    public void unblock() {
+        blocked = false;
+    }
+
+    public void updateProfile(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
+
+    public void deactivate() {
+        active = false;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     @Id
     private UUID id;
 

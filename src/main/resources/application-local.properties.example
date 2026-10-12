@@ -9,3 +9,9 @@ app.authorization.key-store.location=file:${user.home}/.conecta/authorization-se
 app.authorization.key-store.password=replace-me
 app.authorization.key-store.alias=authorization-server
 app.authorization.key-store.key-password=replace-me
+
+# SMTP is used for verification and reset links.
+spring.mail.host=localhost
+spring.mail.port=1025
+spring.mail.properties.mail.smtp.auth=false
+app.accounts.web-base-url=http://localhost:3000

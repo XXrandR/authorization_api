@@ -11,4 +11,6 @@ import java.util.UUID;
 @Repository
 public interface IdentityRepository extends JpaRepository<Identity,UUID> {
     Optional<Identity> findByUsername(@NonNull String username);
+    Optional<Identity> findByEmailIgnoreCase(String email);
+    Optional<Identity> findByUsernameAndRolesName(String username, String roleName);
 }

@@ -17,7 +17,11 @@ grant.
   startup and is ignored by Git.
 
 See [docs/oauth2.1-contract.md](docs/oauth2.1-contract.md) for endpoint and
-client-registration requirements.
+client-registration requirements, and [docs/account-api.md](docs/account-api.md)
+for the identity-web account lifecycle contract.
+
+Infrastructure controls and first-operator bootstrap are documented in
+[docs/infrastructure-console.md](docs/infrastructure-console.md).
 
 ## Local setup
 

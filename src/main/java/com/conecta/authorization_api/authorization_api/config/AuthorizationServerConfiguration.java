@@ -24,6 +24,9 @@ import org.springframework.security.oauth2.server.authorization.token.OAuth2Toke
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
 import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.security.KeyStore;
 import java.security.PrivateKey;
@@ -36,13 +39,17 @@ public class AuthorizationServerConfiguration {
 
     @Bean
     @Order(1)
-    SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http, SessionRegistry registry,
+            @Value("${app.accounts.web-base-url:http://localhost:3000}") String webBaseUrl) throws Exception {
         OAuth2AuthorizationServerConfigurer authorizationServer = new OAuth2AuthorizationServerConfigurer();
         authorizationServer.oidc(Customizer.withDefaults());
         http
                 .securityMatcher(authorizationServer.getEndpointsMatcher())
                 .with(authorizationServer, Customizer.withDefaults())
-                .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+                .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
+                .exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint(webBaseUrl + "/login")))
+                .sessionManagement(session -> session.maximumSessions(-1).sessionRegistry(registry)
+                        .expiredSessionStrategy(event -> event.getResponse().setStatus(401)));
         return http.build();
     }
 
