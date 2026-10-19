@@ -22,17 +22,17 @@ public class AccountNotificationService {
 
     public void sendEmailVerification(String email, String rawToken) {
 		log.info("The token to: {} is {}",email, rawToken);
-        send(email, "Verify your Conecta account",
+        send(email, "Verify your New account",
                 "Verify your email: " + webBaseUrl + "/verify-email?token=" + rawToken);
     }
 
     public void sendPasswordReset(String email, String rawToken) {
-        send(email, "Reset your Conecta password",
+        send(email, "Reset your New password",
                 "Reset your password: " + webBaseUrl + "/reset-password?token=" + rawToken);
     }
 
     public void sendInvitation(String email, String rawToken) {
-        send(email, "You are invited to Conecta",
+        send(email, "You are invited to New",
                 "Create your account: " + webBaseUrl + "/register?invitation=" + rawToken);
     }
 
