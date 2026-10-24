@@ -115,7 +115,7 @@ class SecurityFlowTests {
         @Bean OAuth2AuthorizationService authorizations() { return new InMemoryOAuth2AuthorizationService(); }
         @Bean OAuth2AuthorizationConsentService consents() { return new InMemoryOAuth2AuthorizationConsentService(); }
         @Bean AuthorizationProperties properties() throws Exception {
-            Path directory = Files.createTempDirectory(Path.of("/tmp/opencode"), "security-test-");
+            Path directory = Files.createTempDirectory("security-test-");
             Path key = directory.resolve("signing.p12");
             Process process = new ProcessBuilder(Path.of(System.getProperty("java.home"), "bin", "keytool").toString(),
                     "-genkeypair", "-alias", "authorization-server", "-keyalg", "RSA", "-storetype", "PKCS12", "-keystore", key.toString(),
