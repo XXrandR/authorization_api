@@ -44,10 +44,12 @@ jobs:
           app-name: authorization_api
           project-key: ${{ github.event.inputs.project_key }}
           organization: ${{ github.event.inputs.organization }}
-          tek: nextjs
+          tek: gradle
           build-timestamp: ${{ steps.timestamp.outputs.ts }}
           sonar-url: ${{ vars.SONAR_HOST_URL }}
           sonar-token: ${{ secrets.SONAR_TOKEN }}
+          java-binaries: build/classes/java/main
+          coverage-path: build/reports/jacoco/test/jacocoTestReport.xml
 
       - name: Print Quality Gate & Coverage Results
         if: always()
