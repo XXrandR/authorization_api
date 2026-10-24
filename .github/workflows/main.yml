@@ -50,14 +50,23 @@ jobs:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
           java-binaries: build/classes/java/main
           coverage-path: build/reports/jacoco/test/jacocoTestReport.xml
+          sources: src
 
       - name: Print Quality Gate & Coverage Results
         if: always()
         run: |
           echo "=== SonarCloud Project Status ==="
+          SONAR_URL="${SONAR_HOST_URL}"
+          [ -z "$SONAR_URL" ] && SONAR_URL="https://sonarcloud.io"
+          if [ -z "$SONAR_TOKEN" ]; then
+            echo "::warning::SONAR_TOKEN no está configurado en los secrets del repositorio; no se puede consultar el estado del Quality Gate."
+            exit 0
+          fi
           PROJECT_KEY="${{ github.event.inputs.project_key }}"
-          curl -s -u "${{ secrets.SONAR_TOKEN }}:" \
-            "https://sonarcloud.io/api/qualitygates/project_status?projectKey=${PROJECT_KEY}" \
-            | jq -r '.projectStatus | "Status: " + .status, (.conditions[]? | "- " + .metricKey + ": " + .actualValue|tostring) + " (threshold " + (.errorThreshold|tostring) + ") -> " + .status'
+          curl -sf -u "${SONAR_TOKEN}:" \
+            "${SONAR_URL}/api/qualitygates/project_status?projectKey=${PROJECT_KEY}" \
+            | jq -r '.projectStatus | "Status: " + .status, (.conditions[]? | "- " + .metricKey + ": " + .actualValue|tostring) + " (threshold " + (.errorThreshold|tostring) + ") -> " + .status' \
+            || echo "::warning::No se pudo obtener el estado del proyecto en ${SONAR_URL} (¿existe projectKey=${PROJECT_KEY}?)."
         env:
+          SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
