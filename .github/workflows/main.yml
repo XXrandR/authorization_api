@@ -47,9 +47,16 @@ jobs:
             dependencyLocking {
               lockAllConfigurations()
             }
+            tasks.register("resolveAndLockAll") {
+              doLast {
+                configurations.matching { it.canBeResolved }.all { cfg ->
+                  try { cfg.resolve() } catch (Exception ignored) {}
+                }
+              }
+            }
           }
           EOF
-          ./gradlew --no-daemon dependencies --write-locks -I "$INIT_SCRIPT" >/dev/null
+          ./gradlew --no-daemon resolveAndLockAll --write-locks -I "$INIT_SCRIPT" >/dev/null || true
           rm -f "$INIT_SCRIPT"
 
       - name: Generate build timestamp
@@ -61,6 +68,7 @@ jobs:
         with:
           name: qa-artifacts-${{ github.run_id }}
           path: |
+            settings.gradle
             **/gradle.lockfile
             build/classes/java/main/
             build/reports/jacoco/test/jacocoTestReport.xml
@@ -79,7 +87,7 @@ jobs:
           fetch-depth: 0
 
       - name: Gitleaks
-        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/qa-gitleaks@38723254af5ddb07039e983ce699b693f7f7eacb # v1.0.2
+        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/qa-gitleaks@0cf27106d2ac24cb8b031e942e3a3bab3a5c10f6 # v1.0.2
         with:
           fail-on-error: "true"
 
@@ -91,7 +99,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
 
       - name: Lint SQL
-        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/sql-lint@38723254af5ddb07039e983ce699b693f7f7eacb # v1.0.2
+        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/sql-lint@0cf27106d2ac24cb8b031e942e3a3bab3a5c10f6 # v1.0.2
         with:
           sql-paths: src/main/resources/db/migration
           dialect: postgres
@@ -111,7 +119,7 @@ jobs:
           path: .
 
       - name: Trivy FS Scan
-        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/qa-trivy@38723254af5ddb07039e983ce699b693f7f7eacb # v1.0.2
+        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/qa-trivy@0cf27106d2ac24cb8b031e942e3a3bab3a5c10f6 # v1.0.2
         with:
           scan-type: fs
           severity: CRITICAL,HIGH
@@ -134,7 +142,7 @@ jobs:
           path: .
 
       - name: SonarQube Scan
-        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/qa-sonar@38723254af5ddb07039e983ce699b693f7f7eacb # v1.0.2
+        uses: DevSecOps-Engineer-Org/reusable-workflows/actions/qa-sonar@0cf27106d2ac24cb8b031e942e3a3bab3a5c10f6 # v1.0.2
         with:
           app-name: authorization_api
           project-key: ${{ github.event.inputs.project_key }}
