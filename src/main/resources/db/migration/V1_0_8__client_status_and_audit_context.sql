@@ -1,7 +1,11 @@
-ALTER TABLE auth.oauth2_registered_client ADD COLUMN enabled BOOLEAN NOT NULL DEFAULT TRUE;
+ALTER TABLE auth.oauth2_registered_client
+ADD COLUMN enabled BOOLEAN NOT NULL DEFAULT TRUE;
 ALTER TABLE auth.audit_event ADD COLUMN correlation_id VARCHAR(36);
 
-CREATE FUNCTION auth.reject_audit_mutation() RETURNS trigger LANGUAGE plpgsql AS $$
+CREATE FUNCTION auth.reject_audit_mutation()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
 BEGIN
     RAISE EXCEPTION 'Audit events are append-only';
 END;

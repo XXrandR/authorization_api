@@ -22,7 +22,7 @@ CREATE TABLE auth.identity (
 
 CREATE TABLE auth.role (
     id UUID PRIMARY KEY,
-    name VARCHAR(50) NOT NULL UNIQUE
+    role_name VARCHAR(50) NOT NULL UNIQUE
 );
 
 CREATE TABLE auth.identity_role (
@@ -32,14 +32,14 @@ CREATE TABLE auth.identity_role (
     PRIMARY KEY (identity_id, role_id),
 
     CONSTRAINT fk_identity_role_identity
-        FOREIGN KEY (identity_id)
-        REFERENCES auth.identity(id)
-        ON DELETE CASCADE,
+    FOREIGN KEY (identity_id)
+    REFERENCES auth.identity (id)
+    ON DELETE CASCADE,
 
     CONSTRAINT fk_identity_role_role
-        FOREIGN KEY (role_id)
-        REFERENCES auth.role(id)
-        ON DELETE CASCADE
+    FOREIGN KEY (role_id)
+    REFERENCES auth.role (id)
+    ON DELETE CASCADE
 );
 
 
@@ -48,7 +48,7 @@ CREATE TABLE auth.external_identity (
     id UUID PRIMARY KEY,
 
     identity_id UUID NOT NULL,
-    provider VARCHAR(30) NOT NULL,
+    identity_provider VARCHAR(30) NOT NULL,
     issuer VARCHAR(500),
     provider_subject VARCHAR(255) NOT NULL,
     tenant_id VARCHAR(255),
@@ -56,13 +56,13 @@ CREATE TABLE auth.external_identity (
     email VARCHAR(255),
     email_verified BOOLEAN,
 
-    name VARCHAR(255),
+    display_name VARCHAR(255),
     given_name VARCHAR(255),
     family_name VARCHAR(255),
     picture_url VARCHAR(1000),
     profile_url VARCHAR(1000),
     preferred_username VARCHAR(255),
-    locale VARCHAR(20),
+    locale_code VARCHAR(20),
     hosted_domain VARCHAR(255),
     metadata JSONB,
 
@@ -70,12 +70,12 @@ CREATE TABLE auth.external_identity (
     updated_at TIMESTAMPTZ,
 
     CONSTRAINT fk_external_identity_identity
-        FOREIGN KEY (identity_id)
-        REFERENCES auth.identity(id)
-        ON DELETE CASCADE,
+    FOREIGN KEY (identity_id)
+    REFERENCES auth.identity (id)
+    ON DELETE CASCADE,
 
     CONSTRAINT uq_external_identity_provider_subject
-        UNIQUE (provider, issuer, provider_subject)
+    UNIQUE (identity_provider, issuer, provider_subject)
 );
 
 
@@ -160,4 +160,3 @@ CREATE TABLE auth.oauth2_authorization_consent (
         principal_name
     )
 );
-

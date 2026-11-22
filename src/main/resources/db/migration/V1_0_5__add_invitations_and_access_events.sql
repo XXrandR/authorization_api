@@ -21,4 +21,6 @@ CREATE TABLE auth.access_event (
     created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX idx_access_event_username_created_at ON auth.access_event (username, created_at DESC);
+CREATE INDEX idx_access_event_username_created_at ON auth.access_event (
+    username, created_at DESC
+);

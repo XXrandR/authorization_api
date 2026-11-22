@@ -19,7 +19,7 @@ public class AuditService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String actor = authentication == null ? "SYSTEM" : authentication.getName();
         jdbcTemplate.update("""
-                INSERT INTO auth.audit_event (id, actor_username, action, target_type, target_id, correlation_id)
+                INSERT INTO auth.audit_event (id, actor_username, event_action, target_type, target_id, correlation_id)
                 VALUES (?, ?, ?, ?, ?, ?)
                 """, UUID.randomUUID(), actor, action, targetType, targetId, org.slf4j.MDC.get("requestId"));
     }

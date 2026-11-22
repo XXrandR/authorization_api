@@ -24,7 +24,7 @@ public class VerificationToken {
     private Identity identity;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "token_type", nullable = false)
     private VerificationTokenType type;
 
     @Column(name = "token_hash", nullable = false, unique = true, length = 64)

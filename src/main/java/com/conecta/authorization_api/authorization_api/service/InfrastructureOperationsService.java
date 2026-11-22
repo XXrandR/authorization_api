@@ -53,7 +53,7 @@ public class InfrastructureOperationsService {
     }
 
     public List<RoleView> roleViews() {
-        return jdbc.query("SELECT r.id, r.name, r.is_system, count(ir.identity_id) FROM auth.role r LEFT JOIN auth.identity_role ir ON ir.role_id = r.id GROUP BY r.id, r.name, r.is_system ORDER BY r.name", (row, index) -> new RoleView(UUID.fromString(row.getString(1)), row.getString(2), row.getBoolean(3), row.getLong(4)));
+        return jdbc.query("SELECT r.id, r.role_name, r.is_system, count(ir.identity_id) FROM auth.role r LEFT JOIN auth.identity_role ir ON ir.role_id = r.id GROUP BY r.id, r.role_name, r.is_system ORDER BY r.role_name", (row, index) -> new RoleView(UUID.fromString(row.getString(1)), row.getString(2), row.getBoolean(3), row.getLong(4)));
     }
 
     @Transactional
@@ -208,11 +208,11 @@ public class InfrastructureOperationsService {
 
     private void protectLastOperator(Identity identity) {
         if (identity.getRoles().stream().noneMatch(role -> role.getName().equals("INFRASTRUCTURE_INTERNAL"))) return;
-        jdbc.queryForObject("SELECT id FROM auth.role WHERE name = 'INFRASTRUCTURE_INTERNAL' FOR UPDATE", UUID.class);
+        jdbc.queryForObject("SELECT id FROM auth.role WHERE role_name = 'INFRASTRUCTURE_INTERNAL' FOR UPDATE", UUID.class);
         Long operators = jdbc.queryForObject("""
                 SELECT count(*) FROM auth.identity i JOIN auth.identity_role ir ON i.id = ir.identity_id
                 JOIN auth.role r ON r.id = ir.role_id
-                WHERE r.name = 'INFRASTRUCTURE_INTERNAL' AND i.is_active AND NOT i.is_blocked
+                WHERE r.role_name = 'INFRASTRUCTURE_INTERNAL' AND i.is_active AND NOT i.is_blocked
                 """, Long.class);
         if (identity.isActive() && !identity.isBlocked() && operators != null && operators <= 1) {
             throw new IllegalStateException("Cannot remove the last active infrastructure operator");
@@ -234,7 +234,7 @@ public class InfrastructureOperationsService {
     }
 
     public List<Map<String, Object>> auditEvents() {
-        return jdbc.queryForList("SELECT actor_username,action,target_type,target_id,created_at FROM auth.audit_event ORDER BY created_at DESC LIMIT 500");
+        return jdbc.queryForList("SELECT actor_username,event_action AS action,target_type,target_id,created_at FROM auth.audit_event ORDER BY created_at DESC LIMIT 500");
     }
 
     public List<Map<String, Object>> accessEvents() {

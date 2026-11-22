@@ -15,10 +15,12 @@ VALUES (
 ON CONFLICT (username) DO NOTHING;
 
 INSERT INTO auth.identity_role (identity_id, role_id)
-SELECT identity.id, role.id
-FROM auth.identity identity
-JOIN auth.role role ON role.name = 'INFRASTRUCTURE_INTERNAL'
-WHERE identity.username = '${infrastructure_admin_username}'
+SELECT
+    i.id AS identity_id,
+    r.id AS role_id
+FROM auth.identity AS i
+INNER JOIN auth.role AS r ON r.role_name = 'INFRASTRUCTURE_INTERNAL'
+WHERE i.username = '${infrastructure_admin_username}'
 ON CONFLICT (identity_id, role_id) DO NOTHING;
 
 -- The Next.js infrastructure portal is a public OAuth client: no secret is
@@ -31,7 +33,7 @@ INSERT INTO auth.oauth2_registered_client (
 VALUES (
     gen_random_uuid()::text,
     'conecta-infrastructure-portal',
-    CURRENT_TIMESTAMP,
+    current_timestamp,
     NULL,
     'Conecta Infrastructure Portal',
     'none',
@@ -39,7 +41,30 @@ VALUES (
     'http://localhost:3000/infrastructure/clients',
     'http://localhost:3000/',
     'openid,profile,api.read',
-    '{"@class":"java.util.Collections$UnmodifiableMap","settings.client.require-proof-key":true,"settings.client.require-authorization-consent":true}',
-    '{"@class":"java.util.Collections$UnmodifiableMap","settings.token.reuse-refresh-tokens":false,"settings.token.access-token-format":{"@class":"org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat","value":"self-contained"},"settings.token.access-token-time-to-live":["java.time.Duration",3600.000000000],"settings.token.refresh-token-time-to-live":["java.time.Duration",28800.000000000],"settings.token.authorization-code-time-to-live":["java.time.Duration",300.000000000]}'
+    '{
+        "@class": "java.util.Collections$UnmodifiableMap",
+        "settings.client.require-proof-key": true,
+        "settings.client.require-authorization-consent": true
+    }',
+    '{
+        "@class": "java.util.Collections$UnmodifiableMap",
+        "settings.token.reuse-refresh-tokens": false,
+        "settings.token.access-token-format": {
+            "@class": "org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat",
+            "value": "self-contained"
+        },
+        "settings.token.access-token-time-to-live": [
+            "java.time.Duration",
+            3600.000000000
+        ],
+        "settings.token.refresh-token-time-to-live": [
+            "java.time.Duration",
+            28800.000000000
+        ],
+        "settings.token.authorization-code-time-to-live": [
+            "java.time.Duration",
+            300.000000000
+        ]
+    }'
 )
 ON CONFLICT (client_id) DO NOTHING;

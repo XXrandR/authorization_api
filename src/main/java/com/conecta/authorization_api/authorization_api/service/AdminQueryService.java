@@ -18,12 +18,12 @@ public class AdminQueryService {
         String projection = switch (resource) {
             case "identities" -> """
                     SELECT i.id, i.username, i.email, i.is_active AS active, i.is_blocked AS blocked,
-                    coalesce(string_agg(r.name, ',' ORDER BY r.name), '') AS roles FROM auth.identity i
+                    coalesce(string_agg(r.role_name, ',' ORDER BY r.role_name), '') AS roles FROM auth.identity i
                     LEFT JOIN auth.identity_role ir ON ir.identity_id = i.id LEFT JOIN auth.role r ON r.id = ir.role_id
                     GROUP BY i.id
                     """;
             case "roles" -> """
-                    SELECT r.id, r.name, r.is_system AS system, count(ir.identity_id) AS members FROM auth.role r
+                    SELECT r.id, r.role_name AS name, r.is_system AS system, count(ir.identity_id) AS members FROM auth.role r
                     LEFT JOIN auth.identity_role ir ON ir.role_id = r.id GROUP BY r.id
                     """;
             case "invitations" -> "SELECT id,email,role_names,expires_at,accepted_at,revoked_at,created_at FROM auth.invitation";
@@ -32,7 +32,7 @@ public class AdminQueryService {
                     a.access_token_expires_at,a.refresh_token_expires_at FROM auth.oauth2_authorization a
                     JOIN auth.oauth2_registered_client c ON c.id = a.registered_client_id
                     """;
-            case "audit-events" -> "SELECT id,actor_username,action,target_type,target_id,created_at FROM auth.audit_event";
+            case "audit-events" -> "SELECT id,actor_username,event_action AS action,target_type,target_id,created_at FROM auth.audit_event";
             case "access-events" -> "SELECT id,username,event_type,remote_address,user_agent,created_at FROM auth.access_event";
             default -> throw new IllegalArgumentException("Unknown resource");
         };

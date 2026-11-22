@@ -3,13 +3,13 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 INSERT INTO auth.role (
     id,
-    name
+    role_name
 )
 VALUES (
     gen_random_uuid(),
     'ADMIN'
 )
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (role_name) DO NOTHING;
 
 
 -- ADMIN IDENTITY
@@ -45,12 +45,13 @@ INSERT INTO auth.identity_role (
     role_id
 )
 SELECT
-    i.id,
-    r.id
-FROM auth.identity i
-CROSS JOIN auth.role r
-WHERE i.username = 'admin'
-  AND r.name = 'ADMIN'
+    i.id AS identity_id,
+    r.id AS role_id
+FROM auth.identity AS i
+CROSS JOIN auth.role AS r
+WHERE
+    i.username = 'admin'
+    AND r.role_name = 'ADMIN'
 ON CONFLICT (identity_id, role_id) DO NOTHING;
 
 
@@ -84,7 +85,7 @@ INSERT INTO auth.oauth2_registered_client (
 VALUES (
     gen_random_uuid()::text,
     'example-client',
-    CURRENT_TIMESTAMP,
+    current_timestamp,
     crypt('bonjour', gen_salt('bf', 12)),
     'Example Client',
     'client_secret_basic',
