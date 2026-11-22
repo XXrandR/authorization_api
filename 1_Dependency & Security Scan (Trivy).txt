@@ -1,0 +1,525 @@
+﻿2026-11-08T01:46:17.7460529Z Current runner version: '2.338.2'
+2026-11-08T01:46:17.7490950Z ##[group]Runner Image Provisioner
+2026-11-08T01:46:17.7491969Z Hosted Compute Agent
+2026-11-08T01:46:17.7492825Z Version: 20261028.624
+2026-11-08T01:46:17.7493583Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T01:46:17.7494507Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T01:46:17.7495376Z Worker ID: {1802edf8-c3af-4349-b610-c76dd9c7f74c}
+2026-11-08T01:46:17.7496223Z Region: eastus
+2026-11-08T01:46:17.7496961Z Cloud: Azure
+2026-11-08T01:46:17.7497786Z ##[endgroup]
+2026-11-08T01:46:17.7499656Z ##[group]Operating System
+2026-11-08T01:46:17.7500431Z Ubuntu
+2026-11-08T01:46:17.7501098Z 26.04.1
+2026-11-08T01:46:17.7501775Z LTS
+2026-11-08T01:46:17.7502368Z ##[endgroup]
+2026-11-08T01:46:17.7503093Z ##[group]Runner Image
+2026-11-08T01:46:17.7503858Z Image: ubuntu-26.04
+2026-11-08T01:46:17.7504581Z Version: 20261101.186.1
+2026-11-08T01:46:17.7506180Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-08T01:46:17.7509001Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+2026-11-08T01:46:17.7510306Z ##[endgroup]
+2026-11-08T01:46:17.7511748Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T01:46:17.7514272Z Contents: read
+2026-11-08T01:46:17.7514970Z Metadata: read
+2026-11-08T01:46:17.7515620Z ##[endgroup]
+2026-11-08T01:46:17.7518499Z Secret source: Actions
+2026-11-08T01:46:17.7519708Z Cache mode: write
+2026-11-08T01:46:17.7520844Z Prepare workflow directory
+2026-11-08T01:46:17.7926635Z Prepare all required actions
+2026-11-08T01:46:17.7988264Z Getting action download info
+2026-11-08T01:46:17.9920163Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-08T01:46:18.1095120Z Download action repository 'actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-11-08T01:46:18.2760637Z Download action repository 'DevSecOps-Engineer-Org/reusable-workflows@0cf27106d2ac24cb8b031e942e3a3bab3a5c10f6' (SHA:0cf27106d2ac24cb8b031e942e3a3bab3a5c10f6)
+2026-11-08T01:46:18.5120740Z Complete job name: Dependency & Security Scan (Trivy)
+2026-11-08T01:46:18.5963023Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-11-08T01:46:18.5963862Z with:
+2026-11-08T01:46:18.5964249Z   repository: XXrandR/authorization_api
+2026-11-08T01:46:18.5967782Z   token: ***
+2026-11-08T01:46:18.5968148Z   ssh-strict: true
+2026-11-08T01:46:18.5968513Z   ssh-user: git
+2026-11-08T01:46:18.5968870Z   persist-credentials: true
+2026-11-08T01:46:18.5969261Z   clean: true
+2026-11-08T01:46:18.5969626Z   sparse-checkout-cone-mode: true
+2026-11-08T01:46:18.5970052Z   fetch-depth: 1
+2026-11-08T01:46:18.5970412Z   fetch-tags: false
+2026-11-08T01:46:18.5970789Z   show-progress: true
+2026-11-08T01:46:18.5971145Z   lfs: false
+2026-11-08T01:46:18.5971481Z   submodules: false
+2026-11-08T01:46:18.5971844Z   set-safe-directory: true
+2026-11-08T01:46:18.5972289Z   allow-unsafe-pr-checkout: false
+2026-11-08T01:46:18.5972893Z ##[endgroup]
+2026-11-08T01:46:18.8209094Z Syncing repository: XXrandR/authorization_api
+2026-11-08T01:46:18.8211432Z ##[group]Getting Git version info
+2026-11-08T01:46:18.8212337Z Working directory is '/home/runner/work/authorization_api/authorization_api'
+2026-11-08T01:46:18.8213610Z [command]/usr/bin/git version
+2026-11-08T01:46:18.8238715Z git version 2.56.0
+2026-11-08T01:46:18.8256912Z ##[endgroup]
+2026-11-08T01:46:18.8278306Z Temporarily overriding HOME='/home/runner/work/_temp/11db37c1-4919-4d16-baec-26e2ede06881' before making global git config changes
+2026-11-08T01:46:18.8280346Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T01:46:18.8285488Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/authorization_api/authorization_api
+2026-11-08T01:46:18.8349978Z Deleting the contents of '/home/runner/work/authorization_api/authorization_api'
+2026-11-08T01:46:18.8354669Z ##[group]Initializing the repository
+2026-11-08T01:46:18.8362539Z [command]/usr/bin/git init /home/runner/work/authorization_api/authorization_api
+2026-11-08T01:46:18.8454854Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T01:46:18.8456323Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T01:46:18.8457714Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T01:46:18.8458679Z hint: call:
+2026-11-08T01:46:18.8459197Z hint:
+2026-11-08T01:46:18.8459862Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T01:46:18.8460691Z hint:
+2026-11-08T01:46:18.8461434Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T01:46:18.8462659Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T01:46:18.8463680Z hint:
+2026-11-08T01:46:18.8464206Z hint: 	git branch -m <name>
+2026-11-08T01:46:18.8464843Z hint:
+2026-11-08T01:46:18.8465672Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T01:46:18.8467165Z Initialized empty Git repository in /home/runner/work/authorization_api/authorization_api/.git/
+2026-11-08T01:46:18.8473082Z [command]/usr/bin/git remote add origin https://github.com/XXrandR/authorization_api
+2026-11-08T01:46:18.8532087Z ##[endgroup]
+2026-11-08T01:46:18.8533074Z ##[group]Disabling automatic garbage collection
+2026-11-08T01:46:18.8533950Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T01:46:18.8567903Z ##[endgroup]
+2026-11-08T01:46:18.8568918Z ##[group]Setting up auth
+2026-11-08T01:46:18.8574291Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T01:46:18.8609394Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T01:46:18.9072989Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T01:46:18.9106009Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T01:46:18.9362827Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T01:46:18.9398236Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T01:46:18.9669192Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T01:46:18.9712180Z ##[endgroup]
+2026-11-08T01:46:18.9713009Z ##[group]Fetching the repository
+2026-11-08T01:46:18.9721413Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7823590057e4898a1603853ecb9b488db98d620d:refs/remotes/origin/main
+2026-11-08T01:46:19.1564484Z From https://github.com/XXrandR/authorization_api
+2026-11-08T01:46:19.1565695Z  * [new ref]         7823590057e4898a1603853ecb9b488db98d620d -> origin/main
+2026-11-08T01:46:19.1568548Z ##[endgroup]
+2026-11-08T01:46:19.1569257Z ##[group]Determining the checkout info
+2026-11-08T01:46:19.1570401Z ##[endgroup]
+2026-11-08T01:46:19.1575436Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T01:46:19.1714636Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T01:46:19.1748424Z ##[group]Checking out the ref
+2026-11-08T01:46:19.1752082Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-08T01:46:19.1843175Z Switched to a new branch 'main'
+2026-11-08T01:46:19.1845473Z branch 'main' set up to track 'origin/main'.
+2026-11-08T01:46:19.1852801Z ##[endgroup]
+2026-11-08T01:46:19.1898137Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T01:46:19.1923932Z 7823590057e4898a1603853ecb9b488db98d620d
+2026-11-08T01:46:19.2305716Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+2026-11-08T01:46:19.2306478Z with:
+2026-11-08T01:46:19.2306859Z   name: qa-artifacts-42435628592
+2026-11-08T01:46:19.2307442Z   path: .
+2026-11-08T01:46:19.2307812Z   merge-multiple: false
+2026-11-08T01:46:19.2308253Z   repository: XXrandR/authorization_api
+2026-11-08T01:46:19.2308733Z   run-id: 42435628592
+2026-11-08T01:46:19.2309121Z ##[endgroup]
+2026-11-08T01:46:19.3701906Z Downloading single artifact
+2026-11-08T01:46:19.3919964Z (node:2188) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-08T01:46:19.3921568Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-08T01:46:19.4890970Z Preparing to download the following artifacts:
+2026-11-08T01:46:19.4896796Z - qa-artifacts-42435628592 (ID: 13599760461, Size: 129083, Expected Digest: sha256:6b5c9f082092f8c4b2d8cc4d1791aa79b932d9aa177195f776053a7dea9646a9)
+2026-11-08T01:46:19.5926516Z Redirecting to blob download url: https://productionresultssa15.blob.core.windows.net/actions-results/8a86b656-a2de-451e-ab2e-51eb521d39e4/workflow-job-run-a44a9add-f441-5015-a470-f2740fff9739/artifacts/a4d4cbeedaaa24fe2b454273ae8da36f0c7cc6b0a84425e0cc2851181da8d335.zip
+2026-11-08T01:46:19.6368510Z (node:2188) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-08T01:46:19.6373748Z Starting download of artifact to: /home/runner/work/authorization_api/authorization_api
+2026-11-08T01:46:19.6841591Z SHA256 digest of downloaded artifact is 6b5c9f082092f8c4b2d8cc4d1791aa79b932d9aa177195f776053a7dea9646a9
+2026-11-08T01:46:19.6844427Z Artifact download completed successfully.
+2026-11-08T01:46:19.6845764Z Total of 1 artifact(s) downloaded
+2026-11-08T01:46:19.6847002Z Download artifact has finished successfully
+2026-11-08T01:46:19.7465921Z ##[group]Run DevSecOps-Engineer-Org/reusable-workflows/actions/qa-trivy@0cf27106d2ac24cb8b031e942e3a3bab3a5c10f6
+2026-11-08T01:46:19.7467973Z with:
+2026-11-08T01:46:19.7468666Z   scan-type: fs
+2026-11-08T01:46:19.7469409Z   severity: CRITICAL,HIGH
+2026-11-08T01:46:19.7470216Z   ignore-unfixed: true
+2026-11-08T01:46:19.7470993Z   fail-on-error: true
+2026-11-08T01:46:19.7471765Z   version: v0.76.2
+2026-11-08T01:46:19.7472470Z   target: .
+2026-11-08T01:46:19.7473160Z   scanners: vuln,misconfig
+2026-11-08T01:46:19.7473975Z   include-dev-deps: true
+2026-11-08T01:46:19.7474765Z   vuln-type: os,library
+2026-11-08T01:46:19.7475777Z   skip-dirs: node_modules,.next,dist,build,.git,coverage,vendor
+2026-11-08T01:46:19.7476910Z ##[endgroup]
+2026-11-08T01:46:19.7535922Z ##[start-action display=Validate inputs and resolve config/ignorefile;id=__DevSecOps-Engineer-Org_reusable-workflows.cfg]
+2026-11-08T01:46:19.7591928Z ##[group]Run set -euo pipefail
+2026-11-08T01:46:19.7593059Z [36;1mset -euo pipefail[0m
+2026-11-08T01:46:19.7593868Z [36;1m[0m
+2026-11-08T01:46:19.7594550Z [36;1mSCAN_TYPE="fs"[0m
+2026-11-08T01:46:19.7595345Z [36;1mcase "$SCAN_TYPE" in[0m
+2026-11-08T01:46:19.7596257Z [36;1m  fs|image|config|rootfs|repo) ;;[0m
+2026-11-08T01:46:19.7597187Z [36;1m  *)[0m
+2026-11-08T01:46:19.7598833Z [36;1m    echo "::error::scan-type '$SCAN_TYPE' invalido. Valores permitidos: fs|image|config|rootfs|repo"[0m
+2026-11-08T01:46:19.7600365Z [36;1m    exit 1[0m
+2026-11-08T01:46:19.7601084Z [36;1m    ;;[0m
+2026-11-08T01:46:19.7601755Z [36;1mesac[0m
+2026-11-08T01:46:19.7602425Z [36;1m[0m
+2026-11-08T01:46:19.7603086Z [36;1mTARGET="."[0m
+2026-11-08T01:46:19.7604164Z [36;1mif [ "$SCAN_TYPE" = "image" ] && { [ -z "$TARGET" ] || [ "$TARGET" = "." ]; }; then[0m
+2026-11-08T01:46:19.7606108Z [36;1m  echo "::error::Para scan-type=image debes indicar el nombre de la imagen en 'target' (ej: mi-app:latest)"[0m
+2026-11-08T01:46:19.7607817Z [36;1m  exit 1[0m
+2026-11-08T01:46:19.7608549Z [36;1mfi[0m
+2026-11-08T01:46:19.7609650Z [36;1mif [[ "$SCAN_TYPE" == "fs" || "$SCAN_TYPE" == "config" || "$SCAN_TYPE" == "rootfs" ]]; then[0m
+2026-11-08T01:46:19.7611701Z [36;1m  [ -e "$TARGET" ] || { echo "::error::El target '$TARGET' no existe en el workspace"; exit 1; }[0m
+2026-11-08T01:46:19.7613051Z [36;1mfi[0m
+2026-11-08T01:46:19.7613719Z [36;1m[0m
+2026-11-08T01:46:19.7614395Z [36;1m# --- config de trivy ---[0m
+2026-11-08T01:46:19.7615259Z [36;1mCONFIG_IN=""[0m
+2026-11-08T01:46:19.7616004Z [36;1mCONFIG_ARG=""[0m
+2026-11-08T01:46:19.7616790Z [36;1mif [ -n "$CONFIG_IN" ]; then[0m
+2026-11-08T01:46:19.7618188Z [36;1m  [ -f "$CONFIG_IN" ] || { echo "::error::config-path '$CONFIG_IN' no existe"; exit 1; }[0m
+2026-11-08T01:46:19.7619558Z [36;1m  CONFIG_ARG="--config $CONFIG_IN"[0m
+2026-11-08T01:46:19.7620536Z [36;1melif [ -f trivy.yaml ]; then[0m
+2026-11-08T01:46:19.7621506Z [36;1m  CONFIG_ARG="--config trivy.yaml"[0m
+2026-11-08T01:46:19.7622482Z [36;1melif [ -f .trivy.yaml ]; then[0m
+2026-11-08T01:46:19.7623455Z [36;1m  CONFIG_ARG="--config .trivy.yaml"[0m
+2026-11-08T01:46:19.7624394Z [36;1mfi[0m
+2026-11-08T01:46:19.7625195Z [36;1mecho "config=$CONFIG_ARG" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:19.7626215Z [36;1m[0m
+2026-11-08T01:46:19.7626968Z [36;1m# --- ignorefile (.trivyignore) ---[0m
+2026-11-08T01:46:19.7628202Z [36;1mIGNORE_IN=""[0m
+2026-11-08T01:46:19.7628979Z [36;1mIGNORE_ARG=""[0m
+2026-11-08T01:46:19.7629785Z [36;1mif [ -n "$IGNORE_IN" ]; then[0m
+2026-11-08T01:46:19.7631068Z [36;1m  [ -f "$IGNORE_IN" ] || { echo "::error::ignorefile '$IGNORE_IN' no existe"; exit 1; }[0m
+2026-11-08T01:46:19.7632470Z [36;1m  IGNORE_ARG="--ignorefile $IGNORE_IN"[0m
+2026-11-08T01:46:19.7633512Z [36;1melif [ -f .trivyignore ]; then[0m
+2026-11-08T01:46:19.7634566Z [36;1m  IGNORE_ARG="--ignorefile .trivyignore"[0m
+2026-11-08T01:46:19.7635652Z [36;1melif [ -f .trivyignore.yaml ]; then[0m
+2026-11-08T01:46:19.7636768Z [36;1m  IGNORE_ARG="--ignorefile .trivyignore.yaml"[0m
+2026-11-08T01:46:19.7638319Z [36;1melif [ -f .trivyignore.yml ]; then[0m
+2026-11-08T01:46:19.7639420Z [36;1m  IGNORE_ARG="--ignorefile .trivyignore.yml"[0m
+2026-11-08T01:46:19.7640426Z [36;1mfi[0m
+2026-11-08T01:46:19.7641252Z [36;1mecho "ignore=$IGNORE_ARG" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:19.7642274Z [36;1m[0m
+2026-11-08T01:46:19.7643051Z [36;1m# --- formato de reporte opcional ---[0m
+2026-11-08T01:46:19.7644016Z [36;1mFORMAT=""[0m
+2026-11-08T01:46:19.7644884Z [36;1mcase "$FORMAT" in[0m
+2026-11-08T01:46:19.7645772Z [36;1m  ""|sarif|json|cyclonedx|spdx-json) ;;[0m
+2026-11-08T01:46:19.7646749Z [36;1m  *)[0m
+2026-11-08T01:46:19.7648099Z [36;1m    echo "::error::report-format '$FORMAT' invalido (sarif|json|cyclonedx|spdx-json|vacio)"[0m
+2026-11-08T01:46:19.7649609Z [36;1m    exit 1[0m
+2026-11-08T01:46:19.7650337Z [36;1m    ;;[0m
+2026-11-08T01:46:19.7651022Z [36;1mesac[0m
+2026-11-08T01:46:19.7651699Z [36;1m[0m
+2026-11-08T01:46:19.7652366Z [36;1mRP=""[0m
+2026-11-08T01:46:19.7653157Z [36;1mif [ -n "$FORMAT" ] && [ -z "$RP" ]; then[0m
+2026-11-08T01:46:19.7654159Z [36;1m  EXT="$FORMAT"[0m
+2026-11-08T01:46:19.7655053Z [36;1m  [ "$FORMAT" = "cyclonedx" ] && EXT="cdx.json"[0m
+2026-11-08T01:46:19.7656181Z [36;1m  [ "$FORMAT" = "spdx-json" ] && EXT="spdx.json"[0m
+2026-11-08T01:46:19.7657419Z [36;1m  RP="${GITHUB_WORKSPACE:-.}/trivy-report.$EXT"[0m
+2026-11-08T01:46:19.7658443Z [36;1mfi[0m
+2026-11-08T01:46:19.7659231Z [36;1mecho "format=$FORMAT" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:19.7660303Z [36;1mecho "report=$RP" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:19.7716504Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T01:46:19.7717787Z ##[endgroup]
+2026-11-08T01:46:19.7863815Z ##[end-action id=__DevSecOps-Engineer-Org_reusable-workflows.cfg;outcome=success;conclusion=success;duration_ms=32]
+2026-11-08T01:46:19.7872661Z ##[start-action display=Install Trivy;id=__DevSecOps-Engineer-Org_reusable-workflows.install]
+2026-11-08T01:46:19.7912303Z ##[group]Run set -euo pipefail
+2026-11-08T01:46:19.7913251Z [36;1mset -euo pipefail[0m
+2026-11-08T01:46:19.7914231Z [36;1m[0m
+2026-11-08T01:46:19.7914925Z [36;1mVERSION="v0.76.2"[0m
+2026-11-08T01:46:19.7915752Z [36;1mNOV="${VERSION#v}"[0m
+2026-11-08T01:46:19.7916577Z [36;1m[0m
+2026-11-08T01:46:19.7917461Z [36;1mcase "$(uname -m)" in[0m
+2026-11-08T01:46:19.7918361Z [36;1m  x86_64)  ARCH="64bit" ;;[0m
+2026-11-08T01:46:19.7919262Z [36;1m  aarch64) ARCH="ARM64" ;;[0m
+2026-11-08T01:46:19.7920477Z [36;1m  *) echo "::error::Arquitectura no soportada: $(uname -m)"; exit 1 ;;[0m
+2026-11-08T01:46:19.7921698Z [36;1mesac[0m
+2026-11-08T01:46:19.7922544Z [36;1m[0m
+2026-11-08T01:46:19.7924092Z [36;1mURL="https://github.com/aquasecurity/trivy/releases/download/${VERSION}/trivy_${NOV}_Linux-${ARCH}.tar.gz"[0m
+2026-11-08T01:46:19.7925807Z [36;1mTMP="$(mktemp -d)"[0m
+2026-11-08T01:46:19.7926629Z [36;1m[0m
+2026-11-08T01:46:19.7927716Z [36;1mif ! curl -fsSL --retry 3 -o "$TMP/trivy.tar.gz" "$URL"; then[0m
+2026-11-08T01:46:19.7929340Z [36;1m  echo "::error::No se pudo descargar Trivy $VERSION desde GitHub releases ($URL)"[0m
+2026-11-08T01:46:19.7930737Z [36;1m  exit 1[0m
+2026-11-08T01:46:19.7931453Z [36;1mfi[0m
+2026-11-08T01:46:19.7932275Z [36;1mtar -xzf "$TMP/trivy.tar.gz" -C "$TMP" trivy[0m
+2026-11-08T01:46:19.7933309Z [36;1mchmod +x "$TMP/trivy"[0m
+2026-11-08T01:46:19.7934146Z [36;1m[0m
+2026-11-08T01:46:19.7934839Z [36;1m"$TMP/trivy" --version[0m
+2026-11-08T01:46:19.7935673Z [36;1m[0m
+2026-11-08T01:46:19.7936514Z [36;1mBIN_DIR="${RUNNER_TEMP:-${GITHUB_WORKSPACE:-.}}"[0m
+2026-11-08T01:46:19.7937826Z [36;1mcp "$TMP/trivy" "$BIN_DIR/trivy"[0m
+2026-11-08T01:46:19.7938866Z [36;1mecho "bin=$BIN_DIR/trivy" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:19.7988689Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T01:46:19.7989789Z ##[endgroup]
+2026-11-08T01:46:20.7478978Z Version: 0.76.2
+2026-11-08T01:46:20.8055173Z ##[end-action id=__DevSecOps-Engineer-Org_reusable-workflows.install;outcome=success;conclusion=success;duration_ms=1018]
+2026-11-08T01:46:20.8059364Z ##[start-action display=Run Trivy scan;id=__DevSecOps-Engineer-Org_reusable-workflows.scan]
+2026-11-08T01:46:20.8200514Z ##[group]Run set -uo pipefail
+2026-11-08T01:46:20.8201660Z [36;1mset -uo pipefail[0m
+2026-11-08T01:46:20.8202066Z [36;1m[0m
+2026-11-08T01:46:20.8202453Z [36;1mBIN="/home/runner/work/_temp/trivy"[0m
+2026-11-08T01:46:20.8202908Z [36;1mCONFIG=""[0m
+2026-11-08T01:46:20.8203294Z [36;1mIGNORE=""[0m
+2026-11-08T01:46:20.8203672Z [36;1mFORMAT=""[0m
+2026-11-08T01:46:20.8204050Z [36;1mREPORT=""[0m
+2026-11-08T01:46:20.8204429Z [36;1m[0m
+2026-11-08T01:46:20.8204783Z [36;1mSCAN_TYPE="fs"[0m
+2026-11-08T01:46:20.8205172Z [36;1mTARGET="."[0m
+2026-11-08T01:46:20.8205569Z [36;1mSCANNERS="vuln,misconfig"[0m
+2026-11-08T01:46:20.8206045Z [36;1mSEVERITY="CRITICAL,HIGH"[0m
+2026-11-08T01:46:20.8206461Z [36;1m[0m
+2026-11-08T01:46:20.8206863Z [36;1m# En modo config el scanner valido es misconfig[0m
+2026-11-08T01:46:20.8207481Z [36;1mif [ "$SCAN_TYPE" = "config" ]; then[0m
+2026-11-08T01:46:20.8207947Z [36;1m  SCANNERS="misconfig"[0m
+2026-11-08T01:46:20.8208325Z [36;1mfi[0m
+2026-11-08T01:46:20.8208662Z [36;1m[0m
+2026-11-08T01:46:20.8209059Z [36;1mCOMMON_ARGS="--severity $SEVERITY --no-progress"[0m
+2026-11-08T01:46:20.8209601Z [36;1m[ -n "$SCANNERS" ] && COMMON_ARGS="$COMMON_ARGS --scanners $SCANNERS"[0m
+2026-11-08T01:46:20.8210153Z [36;1m[ -n "$CONFIG" ] && COMMON_ARGS="$COMMON_ARGS $CONFIG"[0m
+2026-11-08T01:46:20.8210655Z [36;1m[ -n "$IGNORE" ] && COMMON_ARGS="$COMMON_ARGS $IGNORE"[0m
+2026-11-08T01:46:20.8211098Z [36;1m[0m
+2026-11-08T01:46:20.8211474Z [36;1mif [ "true" = "true" ]; then[0m
+2026-11-08T01:46:20.8211934Z [36;1m  COMMON_ARGS="$COMMON_ARGS --ignore-unfixed"[0m
+2026-11-08T01:46:20.8212420Z [36;1mfi[0m
+2026-11-08T01:46:20.8212823Z [36;1m[0m
+2026-11-08T01:46:20.8213399Z [36;1mif [ "true" = "true" ] && [[ "$SCAN_TYPE" == "fs" || "$SCAN_TYPE" == "repo" || "$SCAN_TYPE" == "rootfs" ]] && [[ "$SCANNERS" == *"vuln"* ]]; then[0m
+2026-11-08T01:46:20.8214266Z [36;1m  COMMON_ARGS="$COMMON_ARGS --include-dev-deps"[0m
+2026-11-08T01:46:20.8214694Z [36;1mfi[0m
+2026-11-08T01:46:20.8215030Z [36;1m[0m
+2026-11-08T01:46:20.8215470Z [36;1m# vuln-type aplica cuando vuln esta habilitado y el modo lo soporta[0m
+2026-11-08T01:46:20.8216120Z [36;1mif [[ "$SCAN_TYPE" == "image" || "$SCAN_TYPE" == "rootfs" ]] && [[ "$SCANNERS" == *"vuln"* ]] && [ -n "os,library" ]; then[0m
+2026-11-08T01:46:20.8216734Z [36;1m  COMMON_ARGS="$COMMON_ARGS --pkg-types os,library"[0m
+2026-11-08T01:46:20.8217178Z [36;1mfi[0m
+2026-11-08T01:46:20.8217600Z [36;1m[0m
+2026-11-08T01:46:20.8218117Z [36;1mif [ -n "node_modules,.next,dist,build,.git,coverage,vendor" ] && [ "$SCAN_TYPE" != "image" ]; then[0m
+2026-11-08T01:46:20.8218854Z [36;1m  COMMON_ARGS="$COMMON_ARGS --skip-dirs node_modules,.next,dist,build,.git,coverage,vendor"[0m
+2026-11-08T01:46:20.8219408Z [36;1mfi[0m
+2026-11-08T01:46:20.8219799Z [36;1mif [ -n "" ] && [ "$SCAN_TYPE" != "image" ]; then[0m
+2026-11-08T01:46:20.8220271Z [36;1m  COMMON_ARGS="$COMMON_ARGS --skip-files "[0m
+2026-11-08T01:46:20.8220664Z [36;1mfi[0m
+2026-11-08T01:46:20.8220970Z [36;1m[0m
+2026-11-08T01:46:20.8221324Z [36;1mJSON_TMP="$(mktemp -d)/trivy-results.json"[0m
+2026-11-08T01:46:20.8221722Z [36;1mLOG="$(mktemp)"[0m
+2026-11-08T01:46:20.8222056Z [36;1m[0m
+2026-11-08T01:46:20.8222440Z [36;1mecho "Ejecutando: trivy $SCAN_TYPE $COMMON_ARGS  $TARGET"[0m
+2026-11-08T01:46:20.8222879Z [36;1mset +e[0m
+2026-11-08T01:46:20.8223230Z [36;1m"$BIN" "$SCAN_TYPE" $COMMON_ARGS \[0m
+2026-11-08T01:46:20.8223636Z [36;1m  --format json --output "$JSON_TMP" \[0m
+2026-11-08T01:46:20.8224040Z [36;1m   "$TARGET" 2>&1 | tee "$LOG"[0m
+2026-11-08T01:46:20.8224426Z [36;1mRC=${PIPESTATUS[0]}[0m
+2026-11-08T01:46:20.8224781Z [36;1mset -e[0m
+2026-11-08T01:46:20.8225085Z [36;1m[0m
+2026-11-08T01:46:20.8225435Z [36;1mif [ "$RC" -ne 0 ] || [ ! -s "$JSON_TMP" ]; then[0m
+2026-11-08T01:46:20.8226078Z [36;1m  echo "::error::Trivy fallo durante la ejecucion (exit code $RC):"[0m
+2026-11-08T01:46:20.8226545Z [36;1m  tail -30 "$LOG"[0m
+2026-11-08T01:46:20.8226879Z [36;1m  exit 1[0m
+2026-11-08T01:46:20.8227200Z [36;1mfi[0m
+2026-11-08T01:46:20.8227602Z [36;1m[0m
+2026-11-08T01:46:20.8227949Z [36;1m# --- Conteo estructurado desde el JSON ---[0m
+2026-11-08T01:46:20.8228486Z [36;1mVULNS="$(jq '[.Results[]?.Vulnerabilities[]?] | length' "$JSON_TMP" 2>/dev/null || echo 0)"[0m
+2026-11-08T01:46:20.8229267Z [36;1mMISCONFIGS="$(jq '[.Results[]?.Misconfigurations[]?] | length' "$JSON_TMP" 2>/dev/null || echo 0)"[0m
+2026-11-08T01:46:20.8229925Z [36;1mSECRETS="$(jq '[.Results[]?.Secrets[]?] | length' "$JSON_TMP" 2>/dev/null || echo 0)"[0m
+2026-11-08T01:46:20.8230526Z [36;1mLICENSES="$(jq '[.Results[]?.Licenses[]?] | length' "$JSON_TMP" 2>/dev/null || echo 0)"[0m
+2026-11-08T01:46:20.8231087Z [36;1mTOTAL=$((VULNS + MISCONFIGS + SECRETS + LICENSES))[0m
+2026-11-08T01:46:20.8231772Z [36;1mTARGETS_SUMMARY="$(jq -r '[.Results[]? | "\(.Target) (\(.Type // .Class // "scan"))"] | unique | join(", ")' "$JSON_TMP" 2>/dev/null || true)"[0m
+2026-11-08T01:46:20.8232464Z [36;1m[ -z "$TARGETS_SUMMARY" ] && TARGETS_SUMMARY="ninguno detectado"[0m
+2026-11-08T01:46:20.8232909Z [36;1m[0m
+2026-11-08T01:46:20.8233286Z [36;1mecho "vulnerabilities=$VULNS" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:20.8233801Z [36;1mecho "misconfigurations=$MISCONFIGS" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:20.8234306Z [36;1mecho "secrets=$SECRETS" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:20.8234748Z [36;1mecho "licenses=$LICENSES" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:20.8235182Z [36;1mecho "total=$TOTAL" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:20.8235572Z [36;1m[0m
+2026-11-08T01:46:20.8235914Z [36;1m# --- Impresion legible en consola ---[0m
+2026-11-08T01:46:20.8236311Z [36;1mecho ""[0m
+2026-11-08T01:46:20.8236712Z [36;1mecho "=== Resumen Trivy ($SCAN_TYPE -> $TARGET) ==="[0m
+2026-11-08T01:46:20.8237203Z [36;1mecho "  Archivos/Targets SCA  : $TARGETS_SUMMARY"[0m
+2026-11-08T01:46:20.8237902Z [36;1mecho "  Incluye devDeps       : true"[0m
+2026-11-08T01:46:20.8238322Z [36;1mecho "  Vulnerabilidades (CVE): $VULNS"[0m
+2026-11-08T01:46:20.8238764Z [36;1mecho "  Misconfigurations     : $MISCONFIGS"[0m
+2026-11-08T01:46:20.8239194Z [36;1mecho "  Secretos              : $SECRETS"[0m
+2026-11-08T01:46:20.8239611Z [36;1mecho "  Licencias             : $LICENSES"[0m
+2026-11-08T01:46:20.8240030Z [36;1mecho "  Total hallazgos       : $TOTAL"[0m
+2026-11-08T01:46:20.8240442Z [36;1mecho ""[0m
+2026-11-08T01:46:20.8240771Z [36;1m[0m
+2026-11-08T01:46:20.8241110Z [36;1mif [ "$VULNS" -gt 0 ]; then[0m
+2026-11-08T01:46:20.8241534Z [36;1m  echo "--- Vulnerabilidades detectadas ---"[0m
+2026-11-08T01:46:20.8241949Z [36;1m  jq -r '[0m
+2026-11-08T01:46:20.8242364Z [36;1m    .Results[]? | select(.Vulnerabilities != null) | .Target as $t |[0m
+2026-11-08T01:46:20.8242821Z [36;1m    .Vulnerabilities[] |[0m
+2026-11-08T01:46:20.8243567Z [36;1m    "  [\(.Severity)] \($t) | \(.PkgName)@\(.InstalledVersion) -> \(.VulnerabilityID) (fix: \(.FixedVersion // "sin fix")) — \(.Title // .Description // "" | split("\n")[0] | .[0:90])"[0m
+2026-11-08T01:46:20.8244320Z [36;1m  ' "$JSON_TMP"[0m
+2026-11-08T01:46:20.8244666Z [36;1m  echo ""[0m
+2026-11-08T01:46:20.8244983Z [36;1mfi[0m
+2026-11-08T01:46:20.8245296Z [36;1m[0m
+2026-11-08T01:46:20.8245630Z [36;1mif [ "$MISCONFIGS" -gt 0 ]; then[0m
+2026-11-08T01:46:20.8246054Z [36;1m  echo "--- Misconfigurations detectadas ---"[0m
+2026-11-08T01:46:20.8246449Z [36;1m  jq -r '[0m
+2026-11-08T01:46:20.8246870Z [36;1m    .Results[]? | select(.Misconfigurations != null) | .Target as $t |[0m
+2026-11-08T01:46:20.8247502Z [36;1m    .Misconfigurations[] |[0m
+2026-11-08T01:46:20.8247944Z [36;1m    "  [\(.Severity)] \($t) | \(.ID): \(.Title // .Message // "")"[0m
+2026-11-08T01:46:20.8248373Z [36;1m  ' "$JSON_TMP"[0m
+2026-11-08T01:46:20.8248714Z [36;1m  echo ""[0m
+2026-11-08T01:46:20.8249043Z [36;1mfi[0m
+2026-11-08T01:46:20.8249502Z [36;1m[0m
+2026-11-08T01:46:20.8249848Z [36;1mif [ "$SECRETS" -gt 0 ]; then[0m
+2026-11-08T01:46:20.8250243Z [36;1m  echo "--- Secretos detectados ---"[0m
+2026-11-08T01:46:20.8250632Z [36;1m  jq -r '[0m
+2026-11-08T01:46:20.8251030Z [36;1m    .Results[]? | select(.Secrets != null) | .Target as $t |[0m
+2026-11-08T01:46:20.8251471Z [36;1m    .Secrets[] |[0m
+2026-11-08T01:46:20.8272473Z [36;1m    "  [\(.Severity)] \($t):\(.StartLine) | \(.RuleID): \(.Title)"[0m
+2026-11-08T01:46:20.8273024Z [36;1m  ' "$JSON_TMP"[0m
+2026-11-08T01:46:20.8273377Z [36;1m  echo ""[0m
+2026-11-08T01:46:20.8273701Z [36;1mfi[0m
+2026-11-08T01:46:20.8274006Z [36;1m[0m
+2026-11-08T01:46:20.8274438Z [36;1m# --- Generacion de reporte adicional si se pidio report-format ---[0m
+2026-11-08T01:46:20.8274908Z [36;1mif [ -n "$FORMAT" ]; then[0m
+2026-11-08T01:46:20.8275282Z [36;1m  if [ "$FORMAT" = "json" ]; then[0m
+2026-11-08T01:46:20.8275660Z [36;1m    cp "$JSON_TMP" "$REPORT"[0m
+2026-11-08T01:46:20.8276046Z [36;1m  else[0m
+2026-11-08T01:46:20.8276447Z [36;1m    "$BIN" convert --format "$FORMAT" --output "$REPORT" "$JSON_TMP"[0m
+2026-11-08T01:46:20.8276872Z [36;1m  fi[0m
+2026-11-08T01:46:20.8277207Z [36;1m  echo "Reporte ($FORMAT) generado en: $REPORT"[0m
+2026-11-08T01:46:20.8277816Z [36;1m  echo "report=$REPORT" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:20.8278264Z [36;1mfi[0m
+2026-11-08T01:46:20.8278561Z [36;1m[0m
+2026-11-08T01:46:20.8278857Z [36;1mUNBLOCKED="false"[0m
+2026-11-08T01:46:20.8279237Z [36;1mif [ "$TOTAL" -gt 0 ] && [ "true" != "true" ]; then[0m
+2026-11-08T01:46:20.8279622Z [36;1m  UNBLOCKED="true"[0m
+2026-11-08T01:46:20.8279953Z [36;1mfi[0m
+2026-11-08T01:46:20.8280297Z [36;1mecho "unblocked=$UNBLOCKED" >> "$GITHUB_OUTPUT"[0m
+2026-11-08T01:46:20.8280676Z [36;1m[0m
+2026-11-08T01:46:20.8280974Z [36;1m# --- GitHub Step Summary ---[0m
+2026-11-08T01:46:20.8281315Z [36;1m{[0m
+2026-11-08T01:46:20.8281640Z [36;1m  echo "## Trivy Security Scan (v0.76.2)"[0m
+2026-11-08T01:46:20.8282019Z [36;1m  echo ""[0m
+2026-11-08T01:46:20.8282582Z [36;1m  echo "| Parametro | Valor |"[0m
+2026-11-08T01:46:20.8282942Z [36;1m  echo "|---|---|"[0m
+2026-11-08T01:46:20.8283341Z [36;1m  echo "| Modo (\`scan-type\`) | \`$SCAN_TYPE\` |"[0m
+2026-11-08T01:46:20.8283742Z [36;1m  echo "| Target | \`$TARGET\` |"[0m
+2026-11-08T01:46:20.8284190Z [36;1m  echo "| Archivos / Ecosistemas auditados | \`$TARGETS_SUMMARY\` |"[0m
+2026-11-08T01:46:20.8284645Z [36;1m  echo "| Scanners | \`$SCANNERS\` |"[0m
+2026-11-08T01:46:20.8285037Z [36;1m  echo "| Severidad | \`$SEVERITY\` |"[0m
+2026-11-08T01:46:20.8285441Z [36;1m  echo "| Incluye devDependencies | \`true\` |"[0m
+2026-11-08T01:46:20.8285841Z [36;1m  echo "| Ignore unfixed | \`true\` |"[0m
+2026-11-08T01:46:20.8286263Z [36;1m  echo "| Ignorefile | \`${IGNORE:-ninguno}\` |"[0m
+2026-11-08T01:46:20.8286706Z [36;1m  echo "| Vulnerabilidades (CVE) | **$VULNS** |"[0m
+2026-11-08T01:46:20.8287153Z [36;1m  echo "| Misconfigurations (IaC) | **$MISCONFIGS** |"[0m
+2026-11-08T01:46:20.8287676Z [36;1m  echo "| Secretos | **$SECRETS** |"[0m
+2026-11-08T01:46:20.8288073Z [36;1m  echo "| Licencias | **$LICENSES** |"[0m
+2026-11-08T01:46:20.8288488Z [36;1m  echo "| **Total hallazgos** | **$TOTAL** |"[0m
+2026-11-08T01:46:20.8288879Z [36;1m  echo ""[0m
+2026-11-08T01:46:20.8289189Z [36;1m[0m
+2026-11-08T01:46:20.8289510Z [36;1m  if [ "$VULNS" -gt 0 ]; then[0m
+2026-11-08T01:46:20.8289978Z [36;1m    echo "<details><summary>Vulnerabilidades detectadas ($VULNS)</summary>"[0m
+2026-11-08T01:46:20.8290450Z [36;1m    echo ""[0m
+2026-11-08T01:46:20.8290869Z [36;1m    echo "| Severidad | Target | Paquete | Instalado | Fix | CVE | Titulo |"[0m
+2026-11-08T01:46:20.8291339Z [36;1m    echo "|---|---|---|---|---|---|---|"[0m
+2026-11-08T01:46:20.8291696Z [36;1m    jq -r '[0m
+2026-11-08T01:46:20.8292090Z [36;1m      .Results[]? | select(.Vulnerabilities != null) | .Target as $t |[0m
+2026-11-08T01:46:20.8292525Z [36;1m      .Vulnerabilities[] |[0m
+2026-11-08T01:46:20.8293381Z [36;1m      "| `\(.Severity)` | `\($t)` | `\(.PkgName)` | `\(.InstalledVersion)` | `\(.FixedVersion // "sin fix")` | `\(.VulnerabilityID)` | \((.Title // .Description // "-") | split("\n")[0] | gsub("\\|"; "/") | .[0:80]) |"[0m
+2026-11-08T01:46:20.8294134Z [36;1m    ' "$JSON_TMP" | head -100[0m
+2026-11-08T01:46:20.8294478Z [36;1m    echo ""[0m
+2026-11-08T01:46:20.8294798Z [36;1m    echo "</details>"[0m
+2026-11-08T01:46:20.8295126Z [36;1m  fi[0m
+2026-11-08T01:46:20.8295414Z [36;1m[0m
+2026-11-08T01:46:20.8295718Z [36;1m  if [ "$MISCONFIGS" -gt 0 ]; then[0m
+2026-11-08T01:46:20.8296206Z [36;1m    echo "<details><summary>Misconfigurations detectadas ($MISCONFIGS)</summary>"[0m
+2026-11-08T01:46:20.8296689Z [36;1m    echo ""[0m
+2026-11-08T01:46:20.8297053Z [36;1m    echo "| Severidad | Archivo | ID | Descripcion |"[0m
+2026-11-08T01:46:20.8297667Z [36;1m    echo "|---|---|---|---|"[0m
+2026-11-08T01:46:20.8298009Z [36;1m    jq -r '[0m
+2026-11-08T01:46:20.8298408Z [36;1m      .Results[]? | select(.Misconfigurations != null) | .Target as $t |[0m
+2026-11-08T01:46:20.8298849Z [36;1m      .Misconfigurations[] |[0m
+2026-11-08T01:46:20.8299340Z [36;1m      "| `\(.Severity)` | `\($t)` | `\(.ID)` | \((.Title // .Message // "-") | split("\n")[0] | gsub("\\|"; "/") | .[0:90]) |"[0m
+2026-11-08T01:46:20.8299840Z [36;1m    ' "$JSON_TMP" | head -100[0m
+2026-11-08T01:46:20.8300179Z [36;1m    echo ""[0m
+2026-11-08T01:46:20.8300493Z [36;1m    echo "</details>"[0m
+2026-11-08T01:46:20.8300816Z [36;1m  fi[0m
+2026-11-08T01:46:20.8301100Z [36;1m[0m
+2026-11-08T01:46:20.8301387Z [36;1m  if [ "$TOTAL" -eq 0 ]; then[0m
+2026-11-08T01:46:20.8301820Z [36;1m    echo ":white_check_mark: Sin hallazgos para severidad \`$SEVERITY\`."[0m
+2026-11-08T01:46:20.8302242Z [36;1m  fi[0m
+2026-11-08T01:46:20.8302549Z [36;1m} >> "$GITHUB_STEP_SUMMARY"[0m
+2026-11-08T01:46:20.8302875Z [36;1m[0m
+2026-11-08T01:46:20.8303172Z [36;1mif [ "$TOTAL" -gt 0 ]; then[0m
+2026-11-08T01:46:20.8303529Z [36;1m  if [ "$UNBLOCKED" = "true" ]; then[0m
+2026-11-08T01:46:20.8304367Z [36;1m    echo "::warning::Trivy encontro $TOTAL hallazgo(s) ($VULNS vulns, $MISCONFIGS misconfigs, $SECRETS secrets, $LICENSES licenses) con fail-on-error=false (no bloquea)"[0m
+2026-11-08T01:46:20.8305043Z [36;1m    exit 0[0m
+2026-11-08T01:46:20.8305352Z [36;1m  fi[0m
+2026-11-08T01:46:20.8305934Z [36;1m  echo "::error::Trivy encontro $TOTAL hallazgo(s) ($VULNS vulns, $MISCONFIGS misconfigs, $SECRETS secrets, $LICENSES licenses) con severidad $SEVERITY"[0m
+2026-11-08T01:46:20.8306563Z [36;1m  exit 1[0m
+2026-11-08T01:46:20.8306847Z [36;1mfi[0m
+2026-11-08T01:46:20.8307128Z [36;1mexit 0[0m
+2026-11-08T01:46:20.8356739Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T01:46:20.8357177Z ##[endgroup]
+2026-11-08T01:46:20.8526627Z Ejecutando: trivy fs --severity CRITICAL,HIGH --no-progress --scanners vuln,misconfig --ignore-unfixed --include-dev-deps --skip-dirs node_modules,.next,dist,build,.git,coverage,vendor  .
+2026-11-08T01:46:20.9109393Z 2026-11-08T01:46:20Z	INFO	[vulndb] Need to update DB
+2026-11-08T01:46:20.9110214Z 2026-11-08T01:46:20Z	INFO	[vulndb] Downloading vulnerability DB...
+2026-11-08T01:46:20.9110997Z 2026-11-08T01:46:20Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2026-11-08T01:46:25.4467886Z 2026-11-08T01:46:25Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2026-11-08T01:46:25.4507085Z 2026-11-08T01:46:25Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-08T01:46:25.4508161Z 2026-11-08T01:46:25Z	INFO	[misconfig] Misconfiguration scanning is enabled
+2026-11-08T01:46:25.4509451Z 2026-11-08T01:46:25Z	INFO	[checks-client] Need to update the checks bundle
+2026-11-08T01:46:25.4519472Z 2026-11-08T01:46:25Z	INFO	[checks-client] Downloading the checks bundle...
+2026-11-08T01:46:27.2087655Z 234.57 KiB / 234.57 KiB [---------------------------------------------------------] 100.00% ? p/s 0s2026-11-08T01:46:27Z	INFO	Number of language-specific files	num=1
+2026-11-08T01:46:27.2088285Z 2026-11-08T01:46:27Z	INFO	[gradle] Detecting vulnerabilities...
+2026-11-08T01:46:27.2162042Z 2026-11-08T01:46:27Z	INFO	Detected config files	num=0
+2026-11-08T01:46:27.2576444Z 
+2026-11-08T01:46:27.2577453Z === Resumen Trivy (fs -> .) ===
+2026-11-08T01:46:27.2578208Z   Archivos/Targets SCA  : gradle.lockfile (gradle)
+2026-11-08T01:46:27.2578589Z   Incluye devDeps       : true
+2026-11-08T01:46:27.2578832Z   Vulnerabilidades (CVE): 37
+2026-11-08T01:46:27.2579070Z   Misconfigurations     : 0
+2026-11-08T01:46:27.2579291Z   Secretos              : 0
+2026-11-08T01:46:27.2579512Z   Licencias             : 0
+2026-11-08T01:46:27.2579727Z   Total hallazgos       : 37
+2026-11-08T01:46:27.2579869Z 
+2026-11-08T01:46:27.2579977Z --- Vulnerabilidades detectadas ---
+2026-11-08T01:46:27.2633650Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-core@2.21.2 -> CVE-2026-68494 (fix: 2.18.8, 2.21.4) — com.fasterxml.jackson.core/jackson-core: tools.jackson.core/jackson-core: jackson-core: De
+2026-11-08T01:46:27.2635639Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-core@2.21.2 -> CVE-2026-89407 (fix: 2.18.11, 2.21.7, 2.22.3) — com.fasterxml.jackson/jackson-core: tools.jackson.core/jackson-core: Jackson-core: Denial 
+2026-11-08T01:46:27.2636895Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-core@2.21.2 -> CVE-2026-89425 (fix: 2.21.7, 2.22.3, 2.18.11) — com.fasterxml.jackson.core/jackson-core: Jackson-core: Denial of Service via unbounded Str
+2026-11-08T01:46:27.2638771Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-databind@2.21.2 -> CVE-2026-54512 (fix: 2.18.8, 3.1.4, 2.21.4) — jackson-databind: jackson-databind: Arbitrary code execution via PolymorphicTypeValidator 
+2026-11-08T01:46:27.2640929Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-databind@2.21.2 -> CVE-2026-54513 (fix: 2.18.8, 2.21.4, 3.1.4) — jackson-databind: Jackson-databind: Security bypass allows arbitrary code execution
+2026-11-08T01:46:27.2642589Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-databind@2.21.2 -> CVE-2026-68497 (fix: 2.18.10, 2.21.6, 2.22.2) — com.fasterxml.jackson.core/jackson-databind: tools.jackson.core/jackson-databind: jackson-
+2026-11-08T01:46:27.2644990Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-databind@2.21.2 -> CVE-2026-91776 (fix: 2.18.11, 2.21.7, 2.22.3) — jackson-databind: com.fasterxml.jackson/jackson-core: jackson-databind: Denial of Service 
+2026-11-08T01:46:27.2646958Z   [HIGH] gradle.lockfile | com.fasterxml.jackson.core:jackson-databind@2.21.2 -> CVE-2026-91777 (fix: 2.21.7, 2.18.11, 2.22.3) — com.fasterxml.jackson.core/jackson-databind: tools.jackson.core:jackson-databind: Jackson-
+2026-11-08T01:46:27.2648977Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-41293 (fix: 9.0.118, 10.1.55, 11.0.22) — tomcat-coyote: Apache Tomcat: HTTP/2 request headers not validated
+2026-11-08T01:46:27.2650886Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-43512 (fix: 9.0.118, 10.1.55, 11.0.22) — tomcat-coyote: Apache Tomcat: Authentication bypass via digest authentication
+2026-11-08T01:46:27.2652703Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-43515 (fix: 9.0.118, 10.1.55, 11.0.22) — tomcat-coyote: tomcat: Improper Authorization allows security bypass
+2026-11-08T01:46:27.2654479Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-55276 (fix: 11.0.23, 10.1.56, 9.0.119) — tomcat: Apache Tomcat: Misleading security logs due to incorrect control flow
+2026-11-08T01:46:27.2656262Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-65182 (fix: 11.0.25, 10.1.58, 9.0.121) — tomcat: Apache Tomcat: Security constraint bypass due to improper access control
+2026-11-08T01:46:27.2658670Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-65637 (fix: 11.0.25, 10.1.59, 9.0.121) — tomcat: Apache Tomcat: Improper Input Validation allows HTTP/2 no-authority bypass of stri
+2026-11-08T01:46:27.2660663Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-65905 (fix: 11.0.25, 10.1.58, 9.0.121) — tomcat: Apache Tomcat: Authentication bypass via limited replay attack in DIGEST authentic
+2026-11-08T01:46:27.2662735Z   [CRITICAL] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-68525 (fix: 11.0.25, 10.1.58, 9.0.121) — tomcat: Apache Tomcat: Unauthorized resource access via FORM authentication bypass
+2026-11-08T01:46:27.2664641Z   [HIGH] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-41284 (fix: 9.0.118, 10.1.55, 11.0.22) — tomcat: Apache Tomcat: Denial of Service due to uncontrolled resource allocation
+2026-11-08T01:46:27.2666585Z   [HIGH] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-42498 (fix: 9.0.118, 10.1.55, 11.0.22) — tomcat-coyote: Apache Tomcat: Information disclosure due to HTTP Authentication Header exp
+2026-11-08T01:46:27.2668754Z   [HIGH] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-43513 (fix: 9.0.118, 10.1.55, 11.0.22) — tomcat-catalina: Apache Tomcat: Improper Handling of Case Sensitivity in LockOutRealm
+2026-11-08T01:46:27.2670707Z   [HIGH] gradle.lockfile | org.apache.tomcat.embed:tomcat-embed-core@11.0.21 -> CVE-2026-53404 (fix: 11.0.23, 10.1.56, 9.0.119) — Apache Tomcat: Apache Tomcat: Incorrect control flow in rewrite valve allows unexpected ru
+2026-11-08T01:46:27.2672600Z   [HIGH] gradle.lockfile | org.postgresql:postgresql@42.7.10 -> CVE-2026-42198 (fix: 42.7.11) — jdbc.postgresql.org: pgjdbc: Client-side Denial of Service via malicious SCRAM-SHA-256 aut
+2026-11-08T01:46:27.2674348Z   [HIGH] gradle.lockfile | org.postgresql:postgresql@42.7.10 -> CVE-2026-54291 (fix: 42.7.12) — org.postgresql/postgresql: com.ongres.scram/scram-client: pgjdbc: Man-in-the-middle protec
+2026-11-08T01:46:27.2676166Z   [HIGH] gradle.lockfile | org.springframework.data:spring-data-commons@4.0.5 -> CVE-2026-41695 (fix: 4.0.6, 3.5.12) — Spring Data Commons: Spring Data Commons: Denial of Service via crafted property path stri
+2026-11-08T01:46:27.2678368Z   [HIGH] gradle.lockfile | org.springframework.data:spring-data-commons@4.0.5 -> CVE-2026-41716 (fix: 4.0.6, 3.5.12) — Spring Data Commons: Spring Data Commons: Denial of Service due to cache exhaustion via at
+2026-11-08T01:46:27.2680292Z   [HIGH] gradle.lockfile | org.springframework:spring-expression@7.0.7 -> CVE-2026-41850 (fix: 7.0.8, 6.2.19) — spring-framework: Spring Framework: Denial of Service via specially crafted SpEL expressio
+2026-11-08T01:46:27.2682195Z   [CRITICAL] gradle.lockfile | org.springframework:spring-webmvc@7.0.7 -> CVE-2026-47884 (fix: 7.0.9) — org.springframework/spring-webmvc: Spring Framework: Remote Code Execution via improper pa
+2026-11-08T01:46:27.2684085Z   [CRITICAL] gradle.lockfile | org.springframework:spring-webmvc@7.0.7 -> CVE-2026-47890 (fix: 7.0.9) — org.springframework/spring-webmvc: org.springframework/spring-webflux: Spring Framework: S
+2026-11-08T01:46:27.2685945Z   [HIGH] gradle.lockfile | org.springframework:spring-webmvc@7.0.7 -> CVE-2026-41842 (fix: 7.0.8, 6.2.19) — spring-framework: Spring Framework: Denial of Service when resolving static resources
+2026-11-08T01:46:27.2687970Z   [HIGH] gradle.lockfile | org.springframework:spring-webmvc@7.0.7 -> CVE-2026-41845 (fix: 7.0.8, 6.2.19) — org.springframework: Spring Framework: Cross-site scripting (XSS) via incorrect JavaScript
+2026-11-08T01:46:27.2689809Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-core@3.1.2 -> CVE-2026-68494 (fix: 3.1.4) — com.fasterxml.jackson.core/jackson-core: tools.jackson.core/jackson-core: jackson-core: De
+2026-11-08T01:46:27.2691600Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-core@3.1.2 -> CVE-2026-89407 (fix: 3.1.7, 3.2.2) — com.fasterxml.jackson/jackson-core: tools.jackson.core/jackson-core: Jackson-core: Denial 
+2026-11-08T01:46:27.2693593Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-core@3.1.2 -> CVE-2026-89425 (fix: 3.1.7, 3.2.3) — com.fasterxml.jackson.core/jackson-core: Jackson-core: Denial of Service via unbounded Str
+2026-11-08T01:46:27.2695452Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-databind@3.1.2 -> CVE-2026-54512 (fix: 3.1.4) — jackson-databind: jackson-databind: Arbitrary code execution via PolymorphicTypeValidator 
+2026-11-08T01:46:27.2697353Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-databind@3.1.2 -> CVE-2026-54513 (fix: 3.1.4) — jackson-databind: Jackson-databind: Security bypass allows arbitrary code execution
+2026-11-08T01:46:27.2699169Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-databind@3.1.2 -> CVE-2026-68497 (fix: 3.2.2, 3.1.6) — com.fasterxml.jackson.core/jackson-databind: tools.jackson.core/jackson-databind: jackson-
+2026-11-08T01:46:27.2701049Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-databind@3.1.2 -> CVE-2026-91776 (fix: 3.1.7, 3.2.3) — jackson-databind: com.fasterxml.jackson/jackson-core: jackson-databind: Denial of Service 
+2026-11-08T01:46:27.2702876Z   [HIGH] gradle.lockfile | tools.jackson.core:jackson-databind@3.1.2 -> CVE-2026-91777 (fix: 3.1.7, 3.2.3) — com.fasterxml.jackson.core/jackson-databind: tools.jackson.core:jackson-databind: Jackson-
+2026-11-08T01:46:27.2703795Z 
+2026-11-08T01:46:27.3404575Z ##[error]Trivy encontro 37 hallazgo(s) (37 vulns, 0 misconfigs, 0 secrets, 0 licenses) con severidad CRITICAL,HIGH
+2026-11-08T01:46:27.3408949Z ##[error]Process completed with exit code 1.
+2026-11-08T01:46:27.3622762Z ##[end-action id=__DevSecOps-Engineer-Org_reusable-workflows.scan;outcome=failure;conclusion=failure;duration_ms=6556]
+2026-11-08T01:46:27.4242017Z Post job cleanup.
+2026-11-08T01:46:27.4987041Z [command]/usr/bin/git version
+2026-11-08T01:46:27.5062707Z git version 2.56.0
+2026-11-08T01:46:27.5099709Z Temporarily overriding HOME='/home/runner/work/_temp/a094d58f-8886-4798-9181-c5ae33e62766' before making global git config changes
+2026-11-08T01:46:27.5100759Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T01:46:27.5105496Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/authorization_api/authorization_api
+2026-11-08T01:46:27.5159086Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T01:46:27.5202066Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T01:46:27.5491082Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T01:46:27.5524709Z http.https://github.com/.extraheader
+2026-11-08T01:46:27.5537180Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-08T01:46:27.5643006Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T01:46:27.5940679Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T01:46:27.5983366Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T01:46:27.6428157Z Cleaning up orphan processes
+2026-11-08T01:46:27.6876563Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
